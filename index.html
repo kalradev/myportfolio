@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Deevanshu Kalra — Data Scientist | Portfolio" />
+    <title>Deevanshu Kalra | Data Scientist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <nav class="nav">
+          <a href="#home" class="nav-logo">Deevanshu Kalra</a>
+          <ul class="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          <button class="nav-toggle" type="button" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="home" class="hero">
+          <p class="hero-label reveal" data-delay="0">Hello, I'm</p>
+          <h1 class="hero-title reveal" data-delay="1">Deevanshu Kalra</h1>
+          <p class="hero-subtitle reveal" data-delay="2">Data Scientist — turning data into decisions with analysis, ML, and clean code.</p>
+          <a href="#contact" class="btn btn-primary reveal" data-delay="3">Get in touch</a>
+        </section>
+
+        <section id="about" class="section about">
+          <h2 class="section-title reveal">About</h2>
+          <div class="about-inner reveal">
+            <div class="about-content">
+              <p class="about-lead">Profile</p>
+              <p>Highly energetic and self-driven, I am seeking a long-term association with a people-centric organization that values talent, integrity, and dedication. I am eager to embrace challenges and contribute meaningfully in a work environment that fosters growth, collaboration, and continuous learning.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section skills">
+          <h2 class="section-title reveal">Skills</h2>
+          <div class="skills-group reveal">
+            <h3 class="skills-category">Programming</h3>
+            <ul class="skills-list">
+              <li>Python</li>
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Matplotlib</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+          <div class="skills-group reveal">
+            <h3 class="skills-category">Data Analysis</h3>
+            <ul class="skills-list">
+              <li>SQL</li>
+              <li>Excel</li>
+            </ul>
+          </div>
+          <div class="skills-group reveal">
+            <h3 class="skills-category">Data Visualization</h3>
+            <ul class="skills-list">
+              <li>Power BI</li>
+            </ul>
+          </div>
+          <div class="skills-group reveal">
+            <h3 class="skills-category">Soft Skills</h3>
+            <ul class="skills-list">
+              <li>Analytical Thinking</li>
+              <li>Problem Solving</li>
+              <li>Communication</li>
+              <li>Strategic Thinking</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="experience" class="section experience">
+          <h2 class="section-title reveal">Experience</h2>
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-header">
+                <h3>Data Science with AI, ML</h3>
+                <span class="timeline-date">08/2023 – 10/2023</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Comprehensive software solution for booking and managing flight reservations.</li>
+                <li>Streamlines airline operations and reservation processes.</li>
+                <li>Includes backend logic for handling core functionalities.</li>
+                <li>User-friendly interface for both customers and staff.</li>
+                <li>Implements data security measures to protect user information.</li>
+                <li>Supports integration with external services (e.g., payment gateways, APIs).</li>
+                <li>Enhances efficiency and automation in airline management.</li>
+              </ul>
+            </article>
+            <article class="timeline-item reveal">
+              <div class="timeline-header">
+                <h3>Front-end Intern</h3>
+                <span class="timeline-company">Grass Solution Pvt. Ltd.</span>
+                <span class="timeline-date">07/2024 – 10/2024</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Collaborated on developing user interfaces for web applications using React.</li>
+                <li>Implemented responsive designs for optimal viewing across devices.</li>
+                <li>Optimized performance for faster load times and smooth interactions.</li>
+                <li>Ensured a seamless and intuitive user experience.</li>
+                <li>Integrated dynamic content by working with backend APIs.</li>
+                <li>Enhanced application functionality through frontend-backend interaction.</li>
+                <li>Gained deep understanding of web development best practices.</li>
+                <li>Strengthened ability to work in a collaborative, agile environment.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section projects">
+          <h2 class="section-title reveal">Projects</h2>
+          <div class="projects-grid">
+            <article class="project-card project-card-featured reveal">
+              <div class="project-image"></div>
+              <div class="project-body">
+                <span class="project-date">2024 – Present</span>
+                <h3>Bid Intelligence.AI</h3>
+                <p class="project-tagline">AI-powered RFP analysis and bid management platform.</p>
+                <p>Upload RFP documents (PDF/DOCX); the system extracts text and uses OpenAI & Gemini via LangChain to generate summaries and insights. Role-based dashboards (Bid Admin, Bid Manager, Technical Manager), team and quota management with PayPal, department-specific views (Technical, Commercial, Finance, Legal, SCM, Bid Management), and PDF export. JWT auth, PostgreSQL and MongoDB, FastAPI backend, React 19 + TypeScript frontend.</p>
+                <p class="project-tech">React 19 · TypeScript · Vite · FastAPI · LangChain · PostgreSQL · MongoDB · Tailwind · Chart.js · jsPDF</p>
+                <a href="#" class="project-link">View project →</a>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-image"></div>
+              <div class="project-body">
+                <span class="project-date">2024</span>
+                <h3>AI Tracker</h3>
+                <p class="project-tagline">Full-stack AI-powered job application tracker.</p>
+                <p>Track applications (company, role, status, notes); get AI-generated resume bullets and a short cover letter from a job description; ATS score by comparing your resume to the JD. Analytics (applications over time, status breakdown, success ratio), profile with tech stack and resume text for personalized AI. NextAuth credentials (sign up, login, forgot/reset password), protected dashboard, per-user data. Deployed on Vercel.</p>
+                <p class="project-tech">Next.js 14 · TypeScript · Prisma · PostgreSQL · NextAuth · OpenAI · Recharts · React Hook Form · Zod · SWR · Vercel</p>
+                <a href="#" class="project-link">View project →</a>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-image"></div>
+              <div class="project-body">
+                <span class="project-date">07/2024 – 08/2024</span>
+                <h3>Sales Data Analysis Project</h3>
+                <p>Analyzed sales data to identify trends and patterns for business decision-making. Cleaned and pre-processed data using Python (Pandas, NumPy) and conducted exploratory data analysis (EDA) to detect outliers and anomalies.</p>
+                <a href="#" class="project-link">View project →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="education" class="section education">
+          <h2 class="section-title reveal">Education</h2>
+          <div class="education-card reveal">
+            <h3>Bachelor of Technology in Computer Science</h3>
+            <p class="education-school">Arya College of Engineering, Jaipur</p>
+            <p class="education-meta">2021 – 2025 · CGPA 8.8</p>
+          </div>
+        </section>
+
+        <section id="contact" class="section contact">
+          <h2 class="section-title reveal">Contact</h2>
+          <p class="contact-lead reveal">Let's work together.</p>
+          <div class="contact-grid reveal">
+            <a href="mailto:kalradev12345@gmail.com">kalradev12345@gmail.com</a>
+            <a href="tel:7023146806">7023146806</a>
+            <span class="contact-item">Alwar, Rajasthan</span>
+            <a href="https://www.linkedin.com/in/deevanshukalra19" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2025 Deevanshu Kalra. All rights reserved.</p>
+      </footer>
+
+      <a href="#home" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+      </a>
+      <div class="scroll-progress" role="presentation" aria-hidden="true"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
