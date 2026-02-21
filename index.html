@@ -5,16 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Deevanshu Kalra — Data Scientist | Portfolio" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Deevanshu Kalra | Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      /* Prevent nav logo "D" from flashing large in background on hard refresh */
+      #app { position: relative; z-index: 1; }
+      .header { position: sticky; z-index: 100; }
+      .nav-logo-svg { width: 2.25rem; height: 2.25rem; max-width: 36px; max-height: 36px; }
+    </style>
   </head>
   <body>
     <div id="app">
+      <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh-orb bg-mesh-orb-1"></div>
+        <div class="bg-mesh-orb bg-mesh-orb-2"></div>
+        <div class="bg-mesh-orb bg-mesh-orb-3"></div>
+        <div class="bg-mesh-orb bg-mesh-orb-4"></div>
+        <div class="bg-mesh-glow"></div>
+      </div>
       <header class="header">
         <nav class="nav">
-          <a href="#home" class="nav-logo">Deevanshu Kalra</a>
+          <a href="#home" class="nav-logo" aria-label="Home">
+            <svg class="nav-logo-svg" viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.12" />
+              <path d="M12 12h8c6 0 10 4 10 8s-4 8-10 8h-8V12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              <path d="M12 12v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
           <ul class="nav-links">
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -31,10 +52,31 @@
 
       <main>
         <section id="home" class="hero">
-          <p class="hero-label reveal" data-delay="0">Hello, I'm</p>
-          <h1 class="hero-title reveal" data-delay="1">Deevanshu Kalra</h1>
-          <p class="hero-subtitle reveal" data-delay="2">Data Scientist — turning data into decisions with analysis, ML, and clean code.</p>
-          <a href="#contact" class="btn btn-primary reveal" data-delay="3">Get in touch</a>
+          <div class="hero-tilt hero-layout" data-tilt>
+            <div class="hero-avatar-wrap">
+              <img src="/avatar.png" alt="" class="hero-avatar" />
+              <div class="hero-avatar-caption">
+                <p class="hero-caption-line1">I'm a Data Scientist.</p>
+                <p class="hero-caption-line2">Currently focused on solving real-world problems through data and ML at <a href="https://www.linkedin.com/in/deevanshukalra19" target="_blank" rel="noopener" class="hero-caption-link" aria-label="LinkedIn"><img src="/link-logo.png" alt="LinkedIn" class="hero-caption-logo" /></a></p>
+              </div>
+            </div>
+            <div class="hero-text-wrap">
+              <p class="hero-label reveal" data-delay="0">Hello, I'm</p>
+              <h1 class="hero-title reveal hero-title-with-arrow" data-delay="1">
+                <span class="hero-name">Deevanshu Kalra</span>
+                <svg class="hero-arrow" viewBox="0 0 60 50" aria-hidden="true">
+                  <path class="hero-arrow-line" d="M 55 5 Q 10 10 5 45" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8" />
+                  <polygon points="5,45 2,38 12,42" fill="currentColor" />
+                </svg>
+              </h1>
+              <p class="hero-subtitle reveal" data-delay="2">Data Scientist — Focused on analytics, machine learning, and data-driven problem solving.</p>
+            </div>
+            <div class="hero-para-row">
+              <p class="hero-caption-para">I turn data into decisions using analytics, machine learning, and clean code.
+                I build models, dashboards, and data pipelines that balance clarity,
+                performance, and real business impact.</p>
+            </div>
+          </div>
         </section>
 
         <section id="about" class="section about">
@@ -42,7 +84,18 @@
           <div class="about-inner reveal">
             <div class="about-content">
               <p class="about-lead">Profile</p>
-              <p>Highly energetic and self-driven, I am seeking a long-term association with a people-centric organization that values talent, integrity, and dedication. I am eager to embrace challenges and contribute meaningfully in a work environment that fosters growth, collaboration, and continuous learning.</p>
+              <p>I am a motivated and self-driven Data Scientist with a strong interest in
+                solving real-world problems using data. I enjoy working across the entire
+                data lifecycle — from data cleaning and exploratory analysis to machine
+                learning and visualization.</p>
+                <p>
+                I focus on building models, dashboards, and data pipelines that deliver
+                clear insights and measurable business impact. I am seeking opportunities
+                in people-centric organizations where I can grow, collaborate, and
+                contribute meaningfully through data-driven solutions.</p>
+            </div>
+            <div class="about-photo">
+              <img src="/about-photo.png" alt="Deevanshu Kalra — Data Scientist" loading="lazy" class="about-photo-img" />
             </div>
           </div>
         </section>
@@ -125,8 +178,10 @@
         <section id="projects" class="section projects">
           <h2 class="section-title reveal">Projects</h2>
           <div class="projects-grid">
-            <article class="project-card project-card-featured reveal">
-              <div class="project-image"></div>
+            <article class="project-card project-card-featured reveal" data-tilt>
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Bid Intelligence.AI — Dashboard and analytics" loading="lazy" />
+              </div>
               <div class="project-body">
                 <span class="project-date">2024 – Present</span>
                 <h3>Bid Intelligence.AI</h3>
@@ -136,8 +191,10 @@
                 <a href="#" class="project-link">View project →</a>
               </div>
             </article>
-            <article class="project-card reveal">
-              <div class="project-image"></div>
+            <article class="project-card reveal" data-tilt>
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=500&fit=crop" alt="AI Tracker — Job application dashboard" loading="lazy" />
+              </div>
               <div class="project-body">
                 <span class="project-date">2024</span>
                 <h3>AI Tracker</h3>
@@ -147,8 +204,10 @@
                 <a href="#" class="project-link">View project →</a>
               </div>
             </article>
-            <article class="project-card reveal">
-              <div class="project-image"></div>
+            <article class="project-card reveal" data-tilt>
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="Sales Data Analysis — Data and charts" loading="lazy" />
+              </div>
               <div class="project-body">
                 <span class="project-date">07/2024 – 08/2024</span>
                 <h3>Sales Data Analysis Project</h3>
@@ -190,5 +249,10 @@
       <div class="scroll-progress" role="presentation" aria-hidden="true"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+        window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js'); });
+      }
+    </script>
   </body>
 </html>

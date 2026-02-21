@@ -22,7 +22,7 @@ const revealObserver = new IntersectionObserver(
       }
     })
   },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.05, rootMargin: '0px 0px 80px 0px' }
 )
 revealEls.forEach((el) => revealObserver.observe(el))
 
@@ -32,11 +32,13 @@ if (hero) {
   hero.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'))
 }
 
-// ----- Header scroll state -----
+// ----- Header scroll state + active nav (throttled with rAF for smooth scroll) -----
 const header = document.querySelector('.header')
 const scrollProgress = document.querySelector('.scroll-progress') as HTMLElement
+const sections = document.querySelectorAll('section[id]')
+const navLinks = document.querySelectorAll('.nav-link')
 
-function onScroll() {
+function runScrollUpdates() {
   const y = window.scrollY
   if (header) {
     if (y > 40) header.classList.add('scrolled')
@@ -47,10 +49,31 @@ function onScroll() {
     const pct = docHeight > 0 ? (y / docHeight) * 100 : 0
     scrollProgress.style.width = `${pct}%`
   }
+  const yNav = y + 120
+  let current = ''
+  sections.forEach((section) => {
+    const id = section.getAttribute('id')
+    const top = (section as HTMLElement).offsetTop
+    const height = (section as HTMLElement).offsetHeight
+    if (yNav >= top && yNav < top + height) current = id || ''
+  })
+  navLinks.forEach((link) => {
+    const href = (link as HTMLAnchorElement).getAttribute('href')?.slice(1)
+    link.classList.toggle('active', href === current)
+  })
+}
+
+let scrollRaf: number | null = null
+function onScroll() {
+  if (scrollRaf != null) return
+  scrollRaf = requestAnimationFrame(() => {
+    runScrollUpdates()
+    scrollRaf = null
+  })
 }
 
 window.addEventListener('scroll', onScroll, { passive: true })
-onScroll()
+runScrollUpdates()
 
 // ----- Back to top -----
 const backToTop = document.querySelector('.back-to-top')
@@ -65,24 +88,30 @@ const backToTopObserver = new IntersectionObserver(
 )
 if (hero) backToTopObserver.observe(hero)
 
-// ----- Active nav link based on scroll position -----
-const sections = document.querySelectorAll('section[id]')
-const navLinks = document.querySelectorAll('.nav-link')
+window.addEventListener('load', runScrollUpdates)
 
-function setActiveNav() {
-  const y = window.scrollY + 120
-  let current = ''
-  sections.forEach((section) => {
-    const id = section.getAttribute('id')
-    const top = (section as HTMLElement).offsetTop
-    const height = (section as HTMLElement).offsetHeight
-    if (y >= top && y < top + height) current = id || ''
-  })
-  navLinks.forEach((link) => {
-    const href = (link as HTMLAnchorElement).getAttribute('href')?.slice(1)
-    link.classList.toggle('active', href === current)
-  })
+// ----- 3D tilt on mouse move (hero + project cards) -----
+const TILT_MAX = 8
+const TILT_PERSPECTIVE = 1000
+
+function initTilt(el: Element) {
+  const onMove = (e: MouseEvent) => {
+    const rect = (el as HTMLElement).getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    const x = (e.clientX - centerX) / rect.width
+    const y = (e.clientY - centerY) / rect.height
+    const rotateY = x * TILT_MAX
+    const rotateX = -y * TILT_MAX
+    ;(el as HTMLElement).style.transform = `perspective(${TILT_PERSPECTIVE}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`
+  }
+
+  const onLeave = () => {
+    ;(el as HTMLElement).style.transform = `perspective(${TILT_PERSPECTIVE}px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`
+  }
+
+  el.addEventListener('mousemove', onMove as EventListener)
+  el.addEventListener('mouseleave', onLeave)
 }
 
-window.addEventListener('scroll', setActiveNav, { passive: true })
-window.addEventListener('load', setActiveNav)
+document.querySelectorAll('[data-tilt]').forEach(initTilt)
