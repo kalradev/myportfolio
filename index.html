@@ -15,7 +15,7 @@
       /* Prevent nav logo "D" from flashing large in background on hard refresh */
       #app { position: relative; z-index: 1; }
       .header { position: sticky; z-index: 100; }
-      .nav-logo-svg { width: 2.25rem; height: 2.25rem; max-width: 36px; max-height: 36px; }
+      .nav-logo-img { width: 2.5rem; height: 2.5rem; max-width: 40px; max-height: 40px; }
     </style>
   </head>
   <body>
@@ -30,11 +30,7 @@
       <header class="header">
         <nav class="nav">
           <a href="#home" class="nav-logo" aria-label="Home">
-            <svg class="nav-logo-svg" viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.12" />
-              <path d="M12 12h8c6 0 10 4 10 8s-4 8-10 8h-8V12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-              <path d="M12 12v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
+            <img src="/nav-logo.png" alt="" class="nav-logo-img" width="40" height="40" />
           </a>
           <ul class="nav-links">
             <li><a href="#about" class="nav-link">About</a></li>
@@ -69,7 +65,7 @@
                   <polygon points="5,45 2,38 12,42" fill="currentColor" />
                 </svg>
               </h1>
-              <p class="hero-subtitle reveal" data-delay="2">Data Scientist — Focused on analytics, machine learning, and data-driven problem solving.</p>
+              <p class="hero-tech-line">Tech stack I work with <span id="hero-tech-rotating" class="hero-tech-word" aria-live="polite">Python</span></p>
             </div>
             <div class="hero-para-row">
               <p class="hero-caption-para">I turn data into decisions using analytics, machine learning, and clean code.
@@ -102,38 +98,45 @@
 
         <section id="skills" class="section skills">
           <h2 class="section-title reveal">Skills</h2>
-          <div class="skills-group reveal">
-            <h3 class="skills-category">Programming</h3>
-            <ul class="skills-list">
-              <li>Python</li>
-              <li>Pandas</li>
-              <li>NumPy</li>
-              <li>Matplotlib</li>
-              <li>HTML</li>
-              <li>CSS</li>
-            </ul>
-          </div>
-          <div class="skills-group reveal">
-            <h3 class="skills-category">Data Analysis</h3>
-            <ul class="skills-list">
-              <li>SQL</li>
-              <li>Excel</li>
-            </ul>
-          </div>
-          <div class="skills-group reveal">
-            <h3 class="skills-category">Data Visualization</h3>
-            <ul class="skills-list">
-              <li>Power BI</li>
-            </ul>
-          </div>
-          <div class="skills-group reveal">
-            <h3 class="skills-category">Soft Skills</h3>
-            <ul class="skills-list">
-              <li>Analytical Thinking</li>
-              <li>Problem Solving</li>
-              <li>Communication</li>
-              <li>Strategic Thinking</li>
-            </ul>
+          <div class="skills-orbit-wrap reveal">
+            <p class="skills-statement">I'm currently looking to join a <strong class="skills-statement-accent">cross-functional</strong> team that values improving people's lives through data-driven solutions and accessible design.</p>
+            <div class="skills-hub">
+              <svg class="skills-hub-connectors" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <path class="skills-hub-line" d="M 40 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 95 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 150 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 205 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 260 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 315 50 Q 200 130 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 55 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 110 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 165 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 220 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 275 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+                <path class="skills-hub-line" d="M 330 100 Q 200 155 200 200" fill="none" stroke="currentColor" stroke-width="1" />
+              </svg>
+              <div class="skills-hub-rows">
+                <div class="skills-hub-row">
+                  <div class="skills-hub-item" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Pandas"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="NumPy"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Matplotlib"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="HTML"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" class="skills-hub-icon skills-hub-icon-svg" loading="lazy" /></div>
+                </div>
+                <div class="skills-hub-row skills-hub-row-2">
+                  <div class="skills-hub-item" title="CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="SQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Excel"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftexcel.svg" alt="Excel" class="skills-hub-icon skills-hub-icon-svg" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Power BI"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI" class="skills-hub-icon skills-hub-icon-svg" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Node.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skills-hub-icon" loading="lazy" /></div>
+                  <div class="skills-hub-item" title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="skills-hub-icon" loading="lazy" /></div>
+                </div>
+              </div>
+              <div class="skills-hub-center" aria-hidden="true">
+                <img src="/nav-logo.png" alt="" class="skills-hub-center-logo" />
+              </div>
+            </div>
           </div>
         </section>
 

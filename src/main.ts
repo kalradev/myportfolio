@@ -32,6 +32,44 @@ if (hero) {
   hero.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'))
 }
 
+// ----- Rotating tech stack in hero (skills you know; typewriter; theme-visible colors) -----
+const TECH_STACK = [
+  { name: 'Python', color: '#f4c430' },
+  { name: 'Pandas', color: '#e70488' },
+  { name: 'NumPy', color: '#22d3ee' },
+  { name: 'Matplotlib', color: '#0d9488' },
+  { name: 'HTML', color: '#e44d26' },
+  { name: 'CSS', color: '#a78bfa' },
+  { name: 'Next.js', color: '#ffffff' },
+  { name: 'Node.js', color: '#339933' },
+  { name: 'Docker', color: '#2496ed' },
+  { name: 'SQL', color: '#f29111' },
+  { name: 'Excel', color: '#217346' },
+  { name: 'Power BI', color: '#f2c811' },
+]
+const heroTechEl = document.getElementById('hero-tech-rotating')
+if (heroTechEl) {
+  let techIndex = 0
+  let letterIndex = 0
+  const TYPE_DELAY_MS = 100
+  const PAUSE_AFTER_WORD_MS = 1200
+
+  function typeNext() {
+    const tech = TECH_STACK[techIndex]
+    if (letterIndex < tech.name.length) {
+      heroTechEl.textContent = tech.name.slice(0, letterIndex + 1)
+      heroTechEl.style.color = tech.color
+      letterIndex++
+      setTimeout(typeNext, TYPE_DELAY_MS)
+    } else {
+      letterIndex = 0
+      techIndex = (techIndex + 1) % TECH_STACK.length
+      setTimeout(typeNext, PAUSE_AFTER_WORD_MS)
+    }
+  }
+  typeNext()
+}
+
 // ----- Header scroll state + active nav (throttled with rAF for smooth scroll) -----
 const header = document.querySelector('.header')
 const scrollProgress = document.querySelector('.scroll-progress') as HTMLElement
