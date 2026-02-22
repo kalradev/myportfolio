@@ -55,6 +55,7 @@ if (heroTechEl) {
   const PAUSE_AFTER_WORD_MS = 1200
 
   function typeNext() {
+    if (!heroTechEl) return
     const tech = TECH_STACK[techIndex]
     if (letterIndex < tech.name.length) {
       heroTechEl.textContent = tech.name.slice(0, letterIndex + 1)
