@@ -628,7 +628,7 @@ main {
   color: var(--text-muted);
 }
 
-.skills-statement-accent {
+.skills-statement .highlight {
   color: var(--accent);
   font-weight: 600;
 }
